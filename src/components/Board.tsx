@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Tile from './Tile';
 import { TileInterface } from './interface'
 
-function Board({width, height, mines} : {width : number, height : number, mines : number}) {
+function Board({setSettings, width, height, mines} : {width : number, height : number, mines : number,setSettings : Function}) {
   
   const [board, setBoard] = useState<TileInterface[][]>()
   const [minesLeft, setMinesLeft] = useState<number>(mines)
@@ -49,6 +49,39 @@ function Board({width, height, mines} : {width : number, height : number, mines 
             ))
         }
     </div>
+    <div className="flexRowContainer">
+        <p>New Game:</p>
+        <button onClick={() => {
+            setSettings({
+                width: 9,
+                height: 9,
+                mines: 10,
+                id: Math.random()
+            })
+            setWinner(undefined)
+        }
+        }>Easy!</button>
+        <button onClick={() => {
+            setSettings({
+                width: 16,
+                height: 16,
+                mines: 40,
+                id: Math.random()
+            })
+            setWinner(undefined)
+        }
+        }>Medium!</button>
+        <button onClick={() => {
+            setSettings({
+                width: 30,
+                height: 16,
+                mines: 99,
+                id: Math.random()
+            })
+            setWinner(undefined)
+        }
+        }>Hard!</button>
+      </div>
     </>
   )
 }

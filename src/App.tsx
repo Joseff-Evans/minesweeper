@@ -14,32 +14,12 @@ function App() {
 
   return (
     <div className="container">
-      <Board
+      <Board key={settings.id}
         width={settings.width} 
         height={settings.height} 
         mines={settings.mines}
+        setSettings={setSettings}
       />
-      <div className="flexRowContainer">
-        <p>New Game:</p>
-        <button onClick={() => setSettings({
-          width: 9,
-          height: 9,
-          mines: 10,
-          id: Math.random()
-        })}>Easy!</button>
-        <button onClick={() => setSettings({
-          width: 16,
-          height: 16,
-          mines: 40,
-          id: Math.random()
-        })}>Medium!</button>
-        <button onClick={() => setSettings({
-          width: 30,
-          height: 16,
-          mines: 99,
-          id: Math.random()
-        })}>Hard!</button>
-      </div>
     </div>
   )
 }
