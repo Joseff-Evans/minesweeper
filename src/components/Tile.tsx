@@ -132,10 +132,10 @@ function Tile({setGameOver, setMinesLeft, mines, width, height, x , y , board, s
             for(let j = 0; j < tempBoard[i].length; j++) {
                 let tempTile = tempBoard[i][j]
                 if ( tempTile.state === "" ) {
-                    tempTile.state = tempTile.isMine ? "mine" : "number"
+                    tempTile.state = tempTile.isMine ? "mine" : ""
                     tempBoard[i][j] = tempTile    
                 } else if ( tempTile.state === "flagged" ) {
-                    tempTile.state = tempTile.isMine ? "flaggedMine" : "number"
+                    tempTile.state = tempTile.isMine ? "flaggedMine" : ""
                     tempBoard[i][j] = tempTile                       
                 }
             }
