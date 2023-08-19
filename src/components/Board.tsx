@@ -42,7 +42,7 @@ function Board({setSettings, width, height, mines} : {width : number, height : n
                 <div className="row" key={"row: " + y}>
                     {
                         board[y].map((_,x) =>
-                            <Tile setGameOver={setWinner} setMinesLeft={setMinesLeft} mines={mines} width={width} height={height} x={x} y={y} board={board} setBoard={setBoard} key={"item: " + x + "," + y} />             
+                            <Tile winner={winner} setGameOver={setWinner} setMinesLeft={setMinesLeft} mines={mines} width={width} height={height} x={x} y={y} board={board} setBoard={setBoard} key={"item: " + x + "," + y} />             
                         )
                     }
                 </div>

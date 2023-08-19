@@ -1,7 +1,7 @@
 import { TileInterface } from './interface'
 import './Tile.css'
 
-function Tile({setGameOver, setMinesLeft, mines, width, height, x , y , board, setBoard} : {mines : number, width : number, height: number, x : number, y : number, board : TileInterface[][], setBoard : Function, setMinesLeft : Function, setGameOver : Function}) {
+function Tile({winner, setGameOver, setMinesLeft, mines, width, height, x , y , board, setBoard} : {winner : boolean | undefined, mines : number, width : number, height: number, x : number, y : number, board : TileInterface[][], setBoard : Function, setMinesLeft : Function, setGameOver : Function}) {
     
     const thisTile = board[y][x]
 
@@ -147,9 +147,9 @@ function Tile({setGameOver, setMinesLeft, mines, width, height, x , y , board, s
     return (
         <div className={"itemContainer " + (thisTile.state ? thisTile.state : "")}>
         <button className="item"
-            onClick={() => Select()}
-            onAuxClick={(e) => Flag(e)}
-            onContextMenu={(e) => e.preventDefault()}
+            onClick={() => winner === undefined ? Select() : ""}
+            onAuxClick={(e) => winner === undefined ? Flag(e) : ""}
+            onContextMenu={(e) => winner === undefined ? e.preventDefault() : ""}
         >
             {thisTile.state === 'number' ? getNearbyTiles(x,y).filter(t => t.isMine).length > 0 ? getNearbyTiles(x,y).filter(t => t.isMine).length : "" : ""}
         </button>
