@@ -1,4 +1,4 @@
-import './board.css'
+import './Board.css'
 import { useEffect, useState } from 'react'
 import Tile from './Tile';
 import { TileInterface } from './interface'
