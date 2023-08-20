@@ -148,19 +148,7 @@ function Tile({winner, setGameOver, setMinesLeft, mines, width, height, x , y , 
 
     return (
         <div className={"itemContainer " + (thisTile.state ? thisTile.state : "")}>
-        <button className="item" style={
-            {
-                color: minesNearby === 1 ? "#0000FF" : 
-                minesNearby === 2 ? "#208620" : 
-                minesNearby === 3 ? "#FF0000" : 
-                minesNearby === 4 ? "#208620" : 
-                minesNearby === 5 ? "#7B0000" : 
-                minesNearby === 6 ? "#007B7B" : 
-                minesNearby === 7 ? "#000000" : 
-                minesNearby === 8 ? "#7B7B7B" :
-                ""
-            }
-        }
+        <button className="item"
             onClick={() => winner === undefined ? Select() : ""}
             onAuxClick={(e) => winner === undefined ? Flag(e) : ""}
             onContextMenu={(e) => winner === undefined ? e.preventDefault() : ""}
